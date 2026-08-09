@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { TopNavigation } from '@/components/ui/top-navigation';
 import { useAuth } from '@/lib/hooks/useAuth';
 import { getUserBookings } from '@/lib/services/api';
@@ -91,12 +92,18 @@ export default function BookingsPage() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center py-20 text-center animate-in fade-in zoom-in duration-500">
-            <div className="relative mb-6 h-28 w-28 overflow-hidden rounded-full border-4 border-border bg-surface shadow-lg flex items-center justify-center">
-              <Ticket className="h-12 w-12 text-muted opacity-50" />
-            </div>
-            <h3 className="text-[20px] font-bold text-foreground tracking-tight">No bookings yet</h3>
-            <p className="mt-2 mb-8 text-[14px] text-muted px-4 max-w-[280px]">
+          <div className="flex flex-col items-center justify-center py-24 text-center animate-in fade-in zoom-in duration-500">
+            {(tab === 'ongoing' || tab === 'completed') ? (
+              <div className="relative mb-6 flex h-[120px] w-[120px] items-center justify-center">
+                <Image src="/assets/Corny%20Bombs/Corny%20Covers%20His%20Eyes.png" alt={`No ${tab} bookings`} fill className="object-contain" />
+              </div>
+            ) : (
+              <div className="relative mb-6 h-28 w-28 overflow-hidden rounded-full border-4 border-border bg-surface shadow-lg flex items-center justify-center">
+                <Ticket className="h-12 w-12 text-muted opacity-50" />
+              </div>
+            )}
+            <h3 className="text-[20px] font-bold text-foreground tracking-tight mb-2">No bookings yet</h3>
+            <p className="mb-8 text-[14px] text-muted px-4 max-w-[280px] leading-relaxed">
               You don&apos;t have any {tab} bookings at the moment. Explore movies to book your next experience!
             </p>
             <Button 

@@ -29,7 +29,7 @@ function EmptyState({ title, description, icon, action, image, className, ...pro
       {...props}
     >
       {image ? (
-        <div className="mb-6 h-32 w-32 relative overflow-hidden flex items-center justify-center">
+        <div className="relative mb-6 flex h-[120px] w-[120px] items-center justify-center">
           {image}
         </div>
       ) : icon ? (
@@ -37,8 +37,8 @@ function EmptyState({ title, description, icon, action, image, className, ...pro
           {icon}
         </div>
       ) : null}
-      <h3 className="text-[20px] font-bold text-foreground tracking-tight">{title}</h3>
-      {description ? <p className="mt-2 mb-6 max-w-[280px] text-[14px] text-muted leading-relaxed">{description}</p> : <div className="mb-6" />}
+      <h3 className="text-[20px] font-bold text-foreground tracking-tight mb-2">{title}</h3>
+      {description ? <p className="mb-8 max-w-[280px] text-[14px] text-muted px-4 leading-relaxed">{description}</p> : <div className="mb-8" />}
       {action && <div>{action}</div>}
     </motion.div>
   );

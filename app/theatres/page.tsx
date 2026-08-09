@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { TopNavigation } from '@/components/ui/top-navigation';
 import { SearchBar } from '@/components/ui/search-bar';
 import { TheatreCard } from '@/components/ui/theatre-card';
@@ -89,8 +90,8 @@ export default function TheatresListingPage() {
         ) : (
           <EmptyState 
             title="No theatres found" 
-            description="We couldn't find any theatres matching your search." 
-            icon={<Store className="h-8 w-8" />} 
+            description="We couldn't find any theatres matching your search or filters." 
+            image={<Image src="/assets/Corny%20Bombs/Corny%20Confused.png" alt="No theatres found" fill className="object-contain" />} 
           />
         )}
       </div>

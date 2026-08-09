@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { TopNavigation } from '@/components/ui/top-navigation';
 import { SearchBar } from '@/components/ui/search-bar';
 import { ExperienceSwitcher } from '@/components/ui/experience-switcher';
@@ -187,7 +188,7 @@ export default function HomePage() {
                         <EmptyState 
                           title="No movies found" 
                           description="Try adjusting your search to find what you're looking for." 
-                          icon={<Film className="h-8 w-8" />} 
+                          image={<Image src="/assets/Corny%20Bombs/Corny%20Confused.png" alt="No movies found" fill className="object-contain" />} 
                         />
                       )}
                     </div>
@@ -233,7 +234,7 @@ export default function HomePage() {
                           <EmptyState 
                             title="No movies found" 
                             description="Try selecting another language or genre." 
-                            icon={<Film className="h-8 w-8" />} 
+                            image={<Image src="/assets/Corny%20Bombs/Corny%20Confused.png" alt="No movies found" fill className="object-contain" />} 
                           />
                         )}
 
@@ -390,13 +391,16 @@ export default function HomePage() {
                             useCartStore.getState().clearCart();
                             router.push(`/theatres/${upcomingBooking.theatre?.id}/snacks?fromBooking=true&fromUpcoming=true&movieId=${upcomingBooking.movie?.id}&showId=${upcomingBooking.show?.id}&bookingId=${upcomingBooking.booking.id}`);
                           }}
+                          onViewTicket={() => {
+                            router.push(`/bookings/${upcomingBooking.booking.id}`);
+                          }}
                         />
                       </div>
                     ) : (
                       <EmptyState 
                         title="No Upcoming Shows" 
                         description="Book a movie ticket first to pre-order snacks directly to your seat." 
-                        icon={<Popcorn className="h-10 w-10 text-primary opacity-50" />} 
+                        image={<Image src="/assets/Corny%20Bombs/Corny%20Confused.png" alt="No Upcoming Shows" fill className="object-contain" />} 
                         action={
                           <button 
                             onClick={() => setActiveTab('movies')}
@@ -449,7 +453,7 @@ export default function HomePage() {
                         <EmptyState 
                           title="No theatres found" 
                           description="We couldn't find any theatres matching your search." 
-                          icon={<Store className="h-8 w-8" />} 
+                          image={<Image src="/assets/Corny%20Bombs/Corny%20Confused.png" alt="No theatres found" fill className="object-contain" />} 
                         />
                       ) : null}
                     </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { TopNavigation } from '@/components/ui/top-navigation';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/lib/store/cartStore';
@@ -269,8 +270,8 @@ export default function CartPage() {
           <div className="py-20 flex justify-center">
             <EmptyState 
               title="Your cart is empty" 
-              description="Looks like you haven't added anything yet." 
-              icon={<span className="text-[24px]">🛒</span>}
+              description="Looks like you haven't added any items to your cart yet." 
+              image={<Image src="/assets/Corny%20Bombs/Corny%20Confused.png" alt="Empty" fill className="object-contain" />}
               action={<Button onClick={() => router.push('/')} className="rounded-full px-8 bg-primary text-white font-bold">Browse Movies</Button>}
             />
           </div>

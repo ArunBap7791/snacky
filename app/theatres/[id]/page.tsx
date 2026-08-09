@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import Image from 'next/image';
 import { TopNavigation } from '@/components/ui/top-navigation';
 import { getTheatre, getMovies } from '@/lib/services/api';
 import { mockShows } from '@/lib/services/mockData';
@@ -49,7 +50,7 @@ export default function TheatreDetailsPage() {
     return (
       <main className="min-h-screen bg-background pb-24 text-foreground flex flex-col">
         <TopNavigation title="Theatre Details" showBack />
-        <EmptyState title="Theatre not found" description="The theatre you are looking for does not exist." icon={<MapPin className="h-8 w-8" />} />
+        <EmptyState title="Theatre not found" description="The theatre you are looking for does not exist." image={<Image src="/assets/Corny%20Bombs/Corny%20Confused.png" alt="Theatre not found" fill className="object-contain" />} />
       </main>
     );
   }
@@ -124,7 +125,7 @@ export default function TheatreDetailsPage() {
             <EmptyState 
               title="No movies running" 
               description="There are currently no movies running at this theatre." 
-              icon={<Film className="h-8 w-8" />} 
+              image={<Image src="/assets/Corny%20Bombs/Corny%20Confused.png" alt="No movies running" fill className="object-contain" />} 
             />
           )}
         </div>

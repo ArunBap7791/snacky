@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
 import { useState } from 'react';
 import { BottomSheet } from '@/components/ui/bottom-sheet';
 import { Ticket, Popcorn, Award, Tag, Check, X, Bell } from 'lucide-react';
@@ -154,7 +155,7 @@ export function NotificationDrawer({ open, onClose }: NotificationDrawerProps) {
           ) : (
             <div className="h-full flex items-center justify-center p-6">
               <EmptyState 
-                icon={<Bell className="h-8 w-8" />}
+                image={<Image src="/assets/Corny%20Bombs/Corny%20hand%20spread%20wide.png" alt="No Notifications" fill className="object-contain" />}
                 title="No Notifications"
                 description="You're all caught up! We'll notify you when there's an update on your bookings or rewards."
               />

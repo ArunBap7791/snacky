@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuthStore } from '@/lib/store/authStore';
@@ -58,8 +59,8 @@ export default function LoginPage() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-10 text-center"
         >
-          <div className="w-16 h-16 bg-primary rounded-[20px] flex items-center justify-center mx-auto mb-6 shadow-[0_8px_32px_rgba(255,42,85,0.3)]">
-            <span className="text-3xl font-bold text-white">S</span>
+          <div className="flex items-center justify-center mx-auto mb-6">
+            <Image src="/assets/Snacky%20Logo/SVG/Snacky%20Combined.svg" alt="Snacky" width={140} height={48} className="object-contain" priority />
           </div>
           <h1 className="text-3xl font-bold text-foreground tracking-tight mb-2">Welcome to Snacky</h1>
           <p className="text-muted text-sm">Your premium movie and snack experience</p>

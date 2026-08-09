@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
 import { TopNavigation } from '@/components/ui/top-navigation';
 import { TheatreCard } from '@/components/ui/theatre-card';
@@ -168,8 +169,8 @@ export default function MovieTheatresPage() {
           ) : (
             <EmptyState 
               title="No shows available" 
-              description="There are no shows scheduled for the selected date." 
-              icon={<CalendarX className="h-8 w-8" />} 
+              description="There are no shows available for the selected date and filters." 
+              image={<Image src="/assets/Corny%20Bombs/Corny%20Confused.png" alt="No shows available" fill className="object-contain" />} 
             />
           )}
         </div>

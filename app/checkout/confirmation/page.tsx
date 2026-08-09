@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -137,7 +138,7 @@ export default function ConfirmationPage() {
             }}
             className="absolute inset-0 rounded-full border-4 border-[#00E676]/30" 
           />
-          <CheckCircle2 className="h-12 w-12 text-success" />
+          <Image src="/assets/Corny%20Bombs/Corny%20jumps%20with%20jy.png" alt="Success" width={80} height={80} className="object-contain z-10" />
         </motion.div>
         
         <motion.h2 variants={fadeUpVariants} className="text-[28px] font-bold tracking-tight mb-2">

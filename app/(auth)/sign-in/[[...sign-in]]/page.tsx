@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useSignIn } from '@clerk/nextjs';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuthStore } from '@/lib/store/authStore';
@@ -70,8 +71,8 @@ export default function SignInPage() {
       <div className="flex-1 w-full max-w-md mx-auto flex flex-col justify-center">
         
         <div className="mb-8 text-center space-y-2">
-          <div className="mx-auto h-16 w-16 bg-primary rounded-[16px] flex items-center justify-center mb-6 shadow-[0_8px_32px_rgba(255,42,85,0.3)]">
-            <span className="font-black text-2xl text-white tracking-tighter">Sn</span>
+          <div className="flex items-center justify-center mx-auto mb-6">
+            <Image src="/assets/Snacky%20Logo/SVG/Snacky%20Combined.svg" alt="Snacky" width={140} height={48} className="object-contain" priority />
           </div>
           <h1 className="text-3xl font-bold tracking-tight">Welcome to Snacky</h1>
           <p className="text-muted text-sm">Your premium cinema companion.</p>

@@ -2,7 +2,8 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ProgressiveImage } from '@/components/ui/progressive-image';
-import { MapPin, Calendar, Clock3, Film, Popcorn } from 'lucide-react';
+import Image from 'next/image';
+import { MapPin, Calendar, Clock3, Film, Popcorn, Store, Ticket } from 'lucide-react';
 import { getMovie, getTheatre, getShow } from '@/lib/services/api';
 import { mockShows } from '@/lib/services/mockData';
 import { Booking, Movie, Theatre, Show } from '@/lib/types/domain';
@@ -90,13 +91,17 @@ export function BookingCard({ booking, tab, className, ...props }: BookingCardPr
             theatre?.logoUrl ? (
               <ProgressiveImage src={theatre.logoUrl} alt={theatre.name} className="absolute inset-0 h-full w-full object-contain bg-white" />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-[16px] font-bold text-muted">{theatre?.name?.charAt(0) || 'S'}</div>
+              <div className="relative flex h-full w-full items-center justify-center">
+                <Image src="/assets/Corny%20Bombs/Corny%20Covers%20His%20Eyes.png" alt="No Logo" fill className="object-contain p-3 opacity-50" />
+              </div>
             )
           ) : (
             movie?.posterUrl ? (
               <ProgressiveImage src={movie.posterUrl} alt={movie.title} className="absolute inset-0 h-full w-full object-cover" />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-[10px] text-muted">No Poster</div>
+              <div className="relative flex h-full w-full items-center justify-center">
+                <Image src="/assets/Corny%20Bombs/Corny%20Covers%20His%20Eyes.png" alt="No Poster" fill className="object-contain p-3 opacity-50" />
+              </div>
             )
           )}
         </div>

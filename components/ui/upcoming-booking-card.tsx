@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Image from 'next/image';
 import { MapPin, Calendar, Clock3, Popcorn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ProgressiveImage } from '@/components/ui/progressive-image';
@@ -13,6 +14,7 @@ export interface UpcomingBookingCardProps extends React.HTMLAttributes<HTMLDivEl
   posterUrl?: string;
   status?: string;
   onBookSnacks?: () => void;
+  onViewTicket?: () => void;
   hasSnacks?: boolean;
   fulfilmentMethod?: string;
 }
@@ -25,6 +27,7 @@ export function UpcomingBookingCard({
   posterUrl, 
   status = 'Confirmed', 
   onBookSnacks, 
+  onViewTicket,
   hasSnacks, 
   fulfilmentMethod, 
   className = '', 
@@ -56,7 +59,9 @@ export function UpcomingBookingCard({
           {posterUrl ? (
             <ProgressiveImage src={posterUrl} alt={movieName} className="absolute inset-0 h-full w-full object-cover" />
           ) : (
-            <div className="flex h-full w-full items-center justify-center text-[10px] text-muted">No Poster</div>
+            <div className="relative flex h-full w-full items-center justify-center">
+              <Image src="/assets/Corny%20Bombs/Corny%20Covers%20His%20Eyes.png" alt="No Poster" fill className="object-contain p-3 opacity-50" />
+            </div>
           )}
         </div>
 
@@ -110,7 +115,7 @@ export function UpcomingBookingCard({
           <Button 
             size="sm"
             className="flex-1"
-            onClick={onBookSnacks} // Usually would go to Ticket, but for this component it was not provided. Let's make it a generic CTA or we can add onViewTicket.
+            onClick={onViewTicket || onBookSnacks} 
             aria-label="View Ticket"
           >
             View Ticket

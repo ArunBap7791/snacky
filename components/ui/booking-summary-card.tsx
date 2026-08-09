@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Image from 'next/image';
 import { ProgressiveImage } from '@/components/ui/progressive-image';
 import { MapPin, Calendar, Clock3, Film, Popcorn, Store, Ticket } from 'lucide-react';
 import { ResolvedSnack } from '@/lib/utils/resolveBookingSnacks';
@@ -67,13 +68,17 @@ export function BookingSummaryCard({ data, className = '' }: BookingSummaryCardP
             data.theatreLogoUrl ? (
               <ProgressiveImage src={data.theatreLogoUrl} alt={data.theatreName || 'Theatre'} className="absolute inset-0 h-full w-full object-contain bg-white" />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-[16px] font-bold text-muted">{data.theatreName?.charAt(0) || 'S'}</div>
+              <div className="relative flex h-full w-full items-center justify-center">
+                <Image src="/assets/Corny%20Bombs/Corny%20Covers%20His%20Eyes.png" alt="No Logo" fill className="object-contain p-3 opacity-50" />
+              </div>
             )
           ) : (
             data.moviePosterUrl ? (
               <ProgressiveImage src={data.moviePosterUrl} alt={data.movieName || 'Movie'} className="absolute inset-0 h-full w-full object-cover" />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-[10px] text-muted">No Poster</div>
+              <div className="relative flex h-full w-full items-center justify-center">
+                <Image src="/assets/Corny%20Bombs/Corny%20Covers%20His%20Eyes.png" alt="No Poster" fill className="object-contain p-3 opacity-50" />
+              </div>
             )
           )}
         </div>

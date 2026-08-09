@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { TopNavigation } from '@/components/ui/top-navigation';
 import { SearchBar } from '@/components/ui/search-bar';
@@ -65,7 +66,7 @@ export default function MoviesListingPage() {
           <EmptyState 
             title="No movies found" 
             description="Try adjusting your search to find what you're looking for." 
-            icon={<Film className="h-8 w-8" />} 
+            image={<Image src="/assets/Corny%20Bombs/Corny%20Confused.png" alt="No movies found" fill className="object-contain" />} 
           />
         )}
       </div>

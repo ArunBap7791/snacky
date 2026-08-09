@@ -1,10 +1,13 @@
 import { SignUp } from '@clerk/nextjs';
-
+import Image from 'next/image';
 export default function SignUpPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
+          <div className="flex items-center justify-center mx-auto mb-6">
+            <Image src="/assets/Snacky%20Logo/SVG/Snacky%20Combined.svg" alt="Snacky" width={140} height={48} className="object-contain" priority />
+          </div>
           <h1 className="text-3xl font-bold text-foreground">Join Snacky</h1>
           <p className="mt-2 text-muted">Create an account to start earning rewards.</p>
         </div>
